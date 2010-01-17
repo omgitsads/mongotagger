@@ -6,9 +6,9 @@ require 'rcov/rcovtask'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |s|
-    s.name = "mongotagger"
-    s.summary = "Mongotagger, a tagging plugin for Mongomapper"
-    s.description = "Mongotagger, a tagging plugin for Mongomapper"
+    s.name = "mongo_tagger"
+    s.summary = "MongoTagger, a tagging plugin for MongoMapper"
+    s.description = "MongoTagger, a tagging plugin for MongoMapper"
     s.email = "adam@adamholt.co.uk"
     s.homepage = "http://github.com/omgitsads/mongotagger"
     s.authors = ["Adam Holt"]

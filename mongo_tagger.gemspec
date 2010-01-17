@@ -4,13 +4,13 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{mongotagger}
+  s.name = %q{mongo_tagger}
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Adam Holt"]
   s.date = %q{2010-01-17}
-  s.description = %q{Mongotagger, a tagging plugin for Mongomapper}
+  s.description = %q{MongoTagger, a tagging plugin for MongoMapper}
   s.email = %q{adam@adamholt.co.uk}
   s.extra_rdoc_files = [
     "README.mdown"
@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
      "VERSION",
      "lib/mongo_tagger.rb",
      "lib/mongo_tagger/tag.rb",
-     "pkg/mongotagger-.gem",
+     "mongotagger.gemspec",
      "test/mongo_tagger_test.rb",
      "test/test_helper.rb"
   ]
@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{Mongotagger, a tagging plugin for Mongomapper}
+  s.summary = %q{MongoTagger, a tagging plugin for MongoMapper}
   s.test_files = [
     "test/mongo_tagger_test.rb",
      "test/test_helper.rb"
