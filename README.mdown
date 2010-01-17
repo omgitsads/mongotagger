@@ -1,0 +1,11 @@
+# MongoTagger
+
+Tagging plugin for [MonogoMapper]("http://github.com/jnunemaker/mongomapper")
+
+## Install
+
+    sudo gem install mongo_tagger
+    
+## Dependencies
+  
+  * MongoMapper - 0.6.1

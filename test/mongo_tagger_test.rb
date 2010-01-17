@@ -6,6 +6,7 @@ class MongoTaggerTest < Test::Unit::TestCase
       setup do
         @post = Post.create(:title => "Test Post")
         @post.tag_list = "mongodb, is, awesome"
+        @post.save
       end
       
       %w(mongodb is awesome).each do |tag|
