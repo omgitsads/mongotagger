@@ -13,7 +13,7 @@ begin
     s.homepage = "http://github.com/omgitsads/mongotagger"
     s.authors = ["Adam Holt"]
     
-    s.add_dependency("mongo_mapper", "0.5.4")
+    s.add_dependency("mongo_mapper", "0.6.10")
     
     s.add_development_dependency("shoulda","2.10.2")
   end
