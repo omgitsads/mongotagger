@@ -1,26 +1,52 @@
 require 'rubygems'
-gem 'hoe', '>= 2.1.0'
-require 'hoe'
-require 'fileutils'
-require './lib/mongo_tagger'
+require 'rake'
+require 'rake/testtask'
+require 'rcov/rcovtask'
 
-Hoe.plugin :newgem
-# Hoe.plugin :website
-# Hoe.plugin :cucumberfeatures
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |s|
+    s.name = "mongotagger"
+    s.summary = "Mongotagger, a tagging plugin for Mongomapper"
+    s.description = "Mongotagger, a tagging plugin for Mongomapper"
+    s.email = "adam@adamholt.co.uk"
+    s.homepage = "http://github.com/omgitsads/mongotagger"
+    s.authors = ["Adam Holt"]
+    
+    s.add_dependency("mongo_mapper", "0.5.4")
+    
+    s.add_development_dependency("shoulda","2.10.2")
+  end
+  Jeweler::RubyforgeTasks.new do |rubyforge|
+    rubyforge.doc_task = "yardoc"
+  end
 
-# Generate all the Rake tasks
-# Run 'rake -T' to see list of generated tasks (from gem root directory)
-$hoe = Hoe.spec 'MongoTagger' do
-  self.developer 'Adam Holt', 'adam@adamholt.co.uk'
-  self.post_install_message = 'PostInstall.txt' # TODO remove if post-install message not required
-  self.rubyforge_name       = self.name # TODO this is default value
-  # self.extra_deps         = [['activesupport','>= 2.0.2']]
-
+rescue LoadError
+  puts "Jeweler not available. Install it with: gem install jeweler"
 end
 
-require 'newgem/tasks'
-Dir['tasks/**/*.rake'].each { |t| load t }
+Rake::TestTask.new do |t|
+  t.libs << 'lib'
+  t.pattern = 'test/**/*_test.rb'
+  t.ruby_opts << '-rubygems'
+  t.verbose = true
+end
 
-# TODO - want other tests/tasks run by default? Add them to the list
-# remove_task :default
-# task :default => [:spec, :features]
+begin
+  require 'yard'
+  YARD::Rake::YardocTask.new(:yardoc)
+rescue LoadError
+  task :yardoc do
+    abort "YARD is not available. In order to run yard, you must: sudo gem install yard"
+  end
+end
+
+
+Rcov::RcovTask.new do |t|
+  t.libs << "test"
+  t.test_files = FileList['test/*_test.rb']
+  t.verbose = true
+end
+
+
+task :default => :rcov
