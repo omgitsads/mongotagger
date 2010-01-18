@@ -9,3 +9,19 @@ Tagging plugin for [MonogoMapper]("http://github.com/jnunemaker/mongomapper")
 ## Dependencies
   
   * MongoMapper - 0.6.1
+  
+## Usage
+
+    class Post
+      include MonogoMapper::Document
+      include MongoTagger
+      key :title, String, :required => true
+    end
+    
+    post = Post.create(:title => "Hello There!")
+    post.tag_list = "monogomapper, is, awesome"
+    post.save
+    
+    Post.find_tagged_with("mongomapper")
+    Post.find_tagged_with("mongomapper, awesome")
+    Post.find_tagged_with(["mongomapper","is","awesome"])
